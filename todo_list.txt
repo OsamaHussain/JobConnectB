@@ -1,0 +1,10 @@
+*job posting title
+*login singup
+*job post update del
+*authentication
+*single post for user
+
+- multer
+- node_mailer
+- context api
+- redux toolkit
