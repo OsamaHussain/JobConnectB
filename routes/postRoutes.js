@@ -1,14 +1,13 @@
-const express = require('express');
-const authController = require('../controller/PostJobController');
+const express = require("express");
+const authController = require("../controller/PostJobController");
 // const { verifyToken } = require('../utils/jwt');
-const router = express.Router()
+const router = express.Router();
+const upload = require("../utils/multerStorage");
 
-router.post('/CreatePost',authController.CreateJob)
-router.post('/GetPosts',authController.GetJobs)
-router.post('/DeletePost',authController.DeleteJob)
-router.post('/EditPost',authController.EditJob)
-// router.post('/login',authController.login)
-// router.get('/getUser',authController.getUser)
-
+router.post("/CreatePost", upload.single("postImg"), authController.CreateJob);
+router.post("/GetPosts", authController.GetJobs);
+router.post("/GetPost/:userId", authController.GetJobsOfUser);
+router.post("/DeletePost", authController.DeleteJob);
+router.post("/EditPost", authController.EditJob);
 
 module.exports = router;
